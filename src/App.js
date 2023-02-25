@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './Pages/Home';
+import Messege from './Pages/Message';
+import Settings from './Pages/Settings';
+import History from './Pages/History';
+import Fav from './Pages/Fav';
+import NavBar from './Component/Navbar';
+import Wallet from './Pages/Wallet';
+import Cart from './Component/Cart';
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   
+      <div className="flexing">
+        <BrowserRouter>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/message" element={<Messege />} />
+            <Route path="/setings" element={<Settings />} />
+            <Route path="/history" element={<History />} />
+            <Route path="/fav" element={<Fav />} />
+            <Route path="/wallet" element={<Wallet />} />
+          </Routes>
+           <Cart/> 
+        </BrowserRouter>
+
+      </div>
+  
   );
 }
 
